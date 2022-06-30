@@ -136,14 +136,14 @@ class Registry
                 continue;
             }
 
-            foreach ($settings as $key => $setting) {
+            foreach (array_reverse($settings, true) as $key => $setting) {
                 if (!in_array($type, $this->widgetTypeSettings) && !empty($setting)) {
                     $this->widgetTypeSettings[$type] = $setting;
                     break;
                 }
             }
 
-            foreach ($settings as $key => $setting) {
+            foreach (array_reverse($settings, true) as $key => $setting) {
                 if (isset($this->widgetTypeSettings[$type])) {
                     $this->widgets[$instance->id_base . '-' . $key] = $instance;
                 }
